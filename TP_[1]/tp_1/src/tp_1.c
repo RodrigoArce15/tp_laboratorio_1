@@ -95,6 +95,44 @@ case 4:
 	 printf("\nd) Precio unitario: %f", precioPorKmAerolineas );
 	 printf("\nLa diferencia de precio es :  %f", diferenciaDePrecio );
 	 break;
+case 5:
+		kilometros = 7090;
+		precioAerolineas = 162965;
+		precioLatam = 159339;
+
+
+		tarjetaDebitoAerolineas = calculosTarjetaDebito(&precioAerolineas, 10);
+
+			tarjetaDebitoLatam = calculosTarjetaDebito(&precioLatam, 10);
+
+			tarjetaCreditoAerolineas = calculosTarjetaCredito(&precioAerolineas, 25);
+
+			tarjetaCreditoLatam = calculosTarjetaCredito(&precioLatam, 25);
+
+			bitcoinAerolineas =  calculosBitcoin(&precioAerolineas,&BITCOIN);
+
+		    bitcoinLatam =  calculosBitcoin(&precioLatam,&BITCOIN);
+
+			precioPorKmAerolineas =  calculosBitcoin(&precioLatam,&kilometros);
+
+			precioPorKmLatam =  calculosBitcoin(&precioAerolineas,&kilometros);
+
+		    diferenciaDePrecio =  calculoDiferenciaDePrecio( &precioAerolineas,  &precioLatam);
+
+
+		    printf("Precios Latam: %f\n", precioLatam );
+		    	 printf("\nPrecio con tarjeta de débito: %f", tarjetaDebitoLatam );
+		    	 printf("\nPrecio con tarjeta de crédito: %f", tarjetaCreditoLatam );
+		    	 printf("\nc) Precio pagando con bitcoin :%f", bitcoinLatam );
+		    	 printf("\nd) Precio unitario: %f\n", precioPorKmLatam);
+
+		    	 printf("Precios Aerolineas Argentinas : %f\n", precioAerolineas );
+		    	 printf("\na) Precio con tarjeta de débito: %f", tarjetaDebitoAerolineas );
+		    	 printf("\nb) Precio con tarjeta de crédito: %f", tarjetaCreditoAerolineas );
+		    	 printf("\nc) Precio pagando con bitcoin : %f", bitcoinAerolineas );
+		    	 printf("\nd) Precio unitario: %f", precioPorKmAerolineas );
+		    	 printf("\nLa diferencia de precio es :  %f\n", diferenciaDePrecio );
+		    	 break;
 	    }
         }
 }while(numero != 6);
