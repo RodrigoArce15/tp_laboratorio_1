@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : tp_1.c
- Author      : 
+ Author      : Rodrigo Arce
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style
@@ -37,31 +37,31 @@ int main(void) {
 	float BITCOIN = 4606954.55;
 
 do{
-respuesta = getInt(&numero, "Ingrese una opción:\n\n1- Ingrese los kilometros\n2- Precio de  vuelos\n3- Calcular los costos\n4- Informar resultados\n5- Carga forzada de datos\n6- Salir\n", "Error", 6,1,3);
+respuesta = getInt(&numero, "Ingrese una opción:\n\n1- Ingrese los kilometros\n2- Precio de  vuelos\n3- Calcular los costos\n4- Informar resultados\n5- Carga forzada de datos\n6- Salir\nOpción: \n", "Ingrese una opción válida\n\n", 6,1,3);
 if(respuesta == 0){
 switch(numero){
 case 1:
 	if(flagPrimeraOpcion == 0){ //flag
-	respuesta = getNumero(&kilometros, "\nIngrese la distancia a recorrer : ", "Ingrese una cantidad válida :", 25000, 100, 3);
+	respuesta = getNumero(&kilometros, "\nIngrese la distancia a recorrer (100Km a 25000Km): ", "Ingrese una cantidad válida:", 25000, 100, 3);
 	if(respuesta == 0){
-		printf("Usted ha ingresado :%f\n", kilometros);
+		printf("Usted ha ingresado :%fKm\n", kilometros);
 	}
 	    	 flagPrimeraOpcion = 1;
 }//flag
      break;
 case 2:
 	if(flagSegundaOpcion == 0){
-	respuesta = getInt(&opcion, "Elija la aerolinea\n1-Latam\n2-Aerolineas", "Ingrese una opción válida :", 2, 1, 3);
+	respuesta = getInt(&opcion, "Elija la aerolinea\n1-Latam\n2-Aerolineas\n", "Ingrese una opción válida :", 2, 1, 3);
 	    if (respuesta == 0){
 		switch(opcion){
 		case 1:
-			respuesta = getNumero(&precioAerolineas, "Indique el precio de vuelo con Aerolineas: \n", "Ingrese una opción válida :", 1000000, 100000, 3);
+			respuesta = getNumero(&precioAerolineas, "Indique el precio de vuelo con Aerolineas($3000000 a $100000): \n", "Ingrese una opción válida :", 1000000, 100000, 3);
 
 			printf("Usted ha ingresado :%f\n",precioAerolineas);
 			break;
 		case 2:
-			respuesta = getNumero(&precioLatam, "Indique el precio de vuelo con Latam: \n", "Ingrese una opción válida", 1000000, 100000, 3);
-					printf("Usted ha ingresado :%f\n", precioLatam);
+			respuesta = getNumero(&precioLatam, "Indique el precio de vuelo con Latam($3000000 a $100000): \n", "Ingrese una opción válida", 3000000, 100000, 3);
+					printf("Usted ha ingresado :$%f\n", precioLatam);
 		}
 			break;
 		}
@@ -70,7 +70,7 @@ case 2:
 	break;
 case 3:
 	if(flagPrimeraOpcion == 0 && flagSegundaOpcion == 0){
-		printf("Por favor Ingrese la distancia y el precio!!!\n");
+		printf("Por favor Ingrese la distancia y el precio!\n");
 	}
 	else{
 	tarjetaDebitoAerolineas = calculosTarjetaDebito(&precioAerolineas, 10);
@@ -91,24 +91,25 @@ case 3:
 
     diferenciaDePrecio =  calculoDiferenciaDePrecio( &precioAerolineas,  &precioLatam);
 	}
+	printf("Precio calculado exitosamente!\n");
 	break;
 case 4:
 	if(flagPrimeraOpcion == 0 && flagSegundaOpcion == 0){
-			printf("Por favor Ingrese la distancia y el precio!!!\n");
+			printf("Por favor Ingrese la distancia y el precio!\n");
 		}
 		else{
 	printf("Precios Latam\n");
-	 printf("\na)Precio con tarjeta de débito: %f", tarjetaDebitoLatam );
-	 printf("\nb)Precio con tarjeta de crédito: %f", tarjetaCreditoLatam );
-	 printf("\nc) Precio pagando con bitcoin :%f", bitcoinLatam );
-	 printf("\nd) Precio unitario:%f", precioPorKmLatam);
+	 printf("\na)Precio con tarjeta de débito: $%f", tarjetaDebitoLatam );
+	 printf("\nb)Precio con tarjeta de crédito: $%f", tarjetaCreditoLatam );
+	 printf("\nc) Precio pagando con bitcoin: BTC%f", bitcoinLatam );
+	 printf("\nd) Precio unitario: $%f\n", precioPorKmLatam);
 
-	 printf("Precios Aerolinea\n");
-	 printf("\na) Precio con tarjeta de débito: %f", tarjetaDebitoAerolineas );
-	 printf("\nb) Precio con tarjeta de crédito: %f", tarjetaCreditoAerolineas );
-	 printf("\nc) Precio pagando con bitcoin : %f", bitcoinAerolineas );
-	 printf("\nd) Precio unitario: %f", precioPorKmAerolineas );
-	 printf("\nLa diferencia de precio es :  %f", diferenciaDePrecio );
+	 printf("\nPrecios Aerolineas Argentinas\n");
+	 printf("\na) Precio con tarjeta de débito: $%f", tarjetaDebitoAerolineas );
+	 printf("\nb) Precio con tarjeta de crédito: $%f", tarjetaCreditoAerolineas );
+	 printf("\nc) Precio pagando con bitcoin : BTC%f", bitcoinAerolineas );
+	 printf("\nd) Precio unitario: $%f", precioPorKmAerolineas );
+	 printf("\nLa diferencia de precio es: $%f", diferenciaDePrecio );
 		}
 	 break;
 
@@ -136,17 +137,17 @@ case 5:
 		    diferenciaDePrecio =  calculoDiferenciaDePrecio( &precioAerolineas,  &precioLatam);
 
 		    printf("Precios Latam: %f\n", precioLatam );
-		    	 printf("\na)Precio con tarjeta de débito: %f", tarjetaDebitoLatam );
-		    	 printf("\nb)Precio con tarjeta de crédito: %f", tarjetaCreditoLatam );
-		    	 printf("\nc) Precio pagando con bitcoin :%f", bitcoinLatam );
-		    	 printf("\nd) Precio unitario: %f\n", precioPorKmLatam);
+		    	 printf("\na)Precio con tarjeta de débito: $%f", tarjetaDebitoLatam );
+		    	 printf("\nb)Precio con tarjeta de crédito: $%f", tarjetaCreditoLatam );
+		    	 printf("\nc) Precio pagando con bitcoin: BTC%f", bitcoinLatam );
+		    	 printf("\nd) Precio unitario: $%f\n", precioPorKmLatam);
 
-		    printf("Precios Aerolineas Argentinas : %f\n", precioAerolineas );
-		    	 printf("\na) Precio con tarjeta de débito: %f", tarjetaDebitoAerolineas );
-		    	 printf("\nb) Precio con tarjeta de crédito: %f", tarjetaCreditoAerolineas );
-		    	 printf("\nc) Precio pagando con bitcoin : %f", bitcoinAerolineas );
-		    	 printf("\nd) Precio unitario: %f", precioPorKmAerolineas );
-		    	 printf("\nLa diferencia de precio es :  %f\n", diferenciaDePrecio );
+		    printf("\nPrecios Aerolineas Argentinas: $%f\n", precioAerolineas );
+		    	 printf("\na) Precio con tarjeta de débito: $%f", tarjetaDebitoAerolineas );
+		    	 printf("\nb) Precio con tarjeta de crédito: $%f", tarjetaCreditoAerolineas );
+		    	 printf("\nc) Precio pagando con bitcoin : BTC%f", bitcoinAerolineas );
+		    	 printf("\nd) Precio unitario: $%f", precioPorKmAerolineas );
+		    	 printf("\nLa diferencia de precio es : $%f\n", diferenciaDePrecio );
 		    	 break;
 	    }
         }
