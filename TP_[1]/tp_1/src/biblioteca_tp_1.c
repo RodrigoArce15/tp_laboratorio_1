@@ -2,7 +2,7 @@
  * biblioteca_tp_1.c
  *
  *  Created on: 14 abr. 2022
- *      Author: Paula Marchi
+ *      Author: Rodrigo Arce
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,8 +32,6 @@ do{
 }
 return retorno;
 }
-
-
 
 
 int getInt(int * pNumeroIngresado, char * mensaje, char * mensajeIncorrecto, int maximo, int minimo, int cantidadIntentos){

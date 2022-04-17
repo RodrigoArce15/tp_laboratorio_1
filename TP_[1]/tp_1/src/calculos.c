@@ -2,7 +2,7 @@
  * calculos.c
  *
  *  Created on: 16 abr. 2022
- *      Author: Paula Marchi
+ *      Author: Rodrigo Arce
  */
 
 #include <stdio.h>

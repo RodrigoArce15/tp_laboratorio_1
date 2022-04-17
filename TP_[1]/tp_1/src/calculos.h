@@ -2,7 +2,7 @@
  * calculos.h
  *
  *  Created on: 16 abr. 2022
- *      Author: Paula Marchi
+ *      Author: Rodrigo Arce
  */
 
 #ifndef CALCULOS_H_

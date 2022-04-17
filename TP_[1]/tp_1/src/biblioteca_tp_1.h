@@ -2,7 +2,7 @@
  * biblioteca_tp_1.h
  *
  *  Created on: 14 abr. 2022
- *      Author: Paula Marchi
+ *      Author: Rodrigo Arce
  */
 
 #ifndef BIBLIOTECA_TP_1_H_
